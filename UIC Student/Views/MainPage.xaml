@@ -1,0 +1,85 @@
+﻿<Page
+    x:Class="UIC_Student.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UIC_Student.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <RelativePanel Grid.Row="0" Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+            <TextBlock Text="University of Illinois at Chicago" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="10,0"></TextBlock>
+        </RelativePanel>
+
+        <CommandBar Background="{ThemeResource SystemControlAcrylicWindowBrush}" Grid.Row="1" RequestedTheme="Light" DefaultLabelPosition="Right" x:Name="CommandThing">
+            <CommandBar.Transitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                </TransitionCollection>
+            </CommandBar.Transitions>
+            <AppBarButton AutomationProperties.AcceleratorKey="Control S" Click="Search_Click" Label="Search" Icon="Find" x:Uid="search2" >
+                <!--<AppBarButton.Icon>
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE094;" Foreground="LightGreen"></FontIcon>
+                        </AppBarButton.Icon>-->
+
+            </AppBarButton>
+            <AppBarSeparator x:Name="AppSep"></AppBarSeparator>
+
+            <AppBarButton x:Name="AppSepB">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xE115;" FontFamily="Segoe MDL2 Assets"></FontIcon>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Icon="Setting" Label="Settings"/>
+            </CommandBar.SecondaryCommands>
+            <CommandBar.Content>
+                <Pivot MaxWidth="320" x:Name="MainPivot">
+                    <PivotItem x:Name="HPivot" Header="Home"/>
+                    <PivotItem x:Name="FPivot" Header="Campus"/>
+                </Pivot>
+            </CommandBar.Content>
+        </CommandBar>
+        <!--<SplitView Grid.Row="2" DisplayMode="Inline" IsPaneOpen="True" CompactPaneLength="320" x:Name="mainsplit" PaneBackground="{ThemeResource SystemControlAcrylicWindowBrush}">
+
+            <SplitView.Pane>
+                <StackPanel Background="Transparent"></StackPanel>
+            </SplitView.Pane>
+        </SplitView>-->
+
+
+        <SplitView Grid.Row="2" PaneBackground="{ThemeResource SystemControlAltLowAcrylicElementBrush}" x:Name="MainPain" DisplayMode="Overlay" PanePlacement="Right" Grid.Column="0">
+            <SplitView.Pane>
+                <RelativePanel>
+                    <AutoSuggestBox VerticalContentAlignment="Center" QueryIcon="Keyboard" Margin="5,5,0,5" x:Name="findbox" Height="35" MinWidth="250"/>
+                    <AppBarButton Margin="0,5" x:Name="findbutton" Foreground="White" Background="#0C8484" RelativePanel.AlignRightWithPanel="True" Height="35" HorizontalAlignment="Right" Icon="Find"></AppBarButton>
+                    <StackPanel Orientation="Horizontal" RelativePanel.Below="findbox" Margin="5">
+                        <RadioButton GroupName="SearchGroup">Professor</RadioButton>
+                        <RadioButton GroupName="SearchGroup">Course</RadioButton>
+                        <RadioButton GroupName="SearchGroup" IsChecked="True">All</RadioButton>
+                    </StackPanel>
+                
+                </RelativePanel>
+            </SplitView.Pane>
+            <RelativePanel Background="{ThemeResource SystemControlBaseMediumLowAcrylicWindowMediumBrush}" Width="250" HorizontalAlignment="Left">
+                <StackPanel Margin="0,5" Orientation="Horizontal">
+                    <Rectangle Fill="Red" Opacity="0.7" Height="auto" Width="7"></Rectangle>
+                    <TextBlock FontSize="18" Margin="5" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" Text="&#xE7B3;"/>
+
+                    <TextBlock Margin="5" FontSize="18" Text="My Watch List"/>
+                </StackPanel>
+
+            
+          
+            </RelativePanel>
+        </SplitView>
+
+    </Grid>
+</Page>
