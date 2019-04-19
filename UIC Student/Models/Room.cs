@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 //using System.Device.Location; //not in UWP?
+
 namespace UIC_Student.Models
 {
     public class Room
@@ -29,6 +26,7 @@ namespace UIC_Student.Models
         public Geocoordinate GetLocation() => location;
 
         public string GetRoomType() => type;
+        public string GetRoomCode() => roomCode;
 
         //public double GetDistanceTo(Geocoordinate loc) => location.GetDistanceTo(loc); //get distance unavable in W.D.G
     }
